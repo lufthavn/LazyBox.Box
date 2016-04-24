@@ -18,7 +18,7 @@ router.post("/play", function(req, res){
     
     if(videoHost == "www.youtube.com" || videoHost == "youtube.com" || videoHost == "youtu.be"){
         console.log("youtube video");
-        var command = util.format("omxplayer 'youtube-dl -g %s'", req.body.url);
+        var command = util.format("omxplayer `youtube-dl -g %s`", req.body.url);
         child_process.exec(command, {}, function(err, stdout, stderr){
             console.log("video stopped");
             if(err){
